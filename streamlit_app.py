@@ -1,12 +1,13 @@
-# Başlangıçta cevabı yanlış kabul ediyoruz
-cevap = ""
+import streamlit as st
 
-# Cevap "dünya kadınlar günü" olmadığı sürece döngü devam eder
-while cevap.lower().strip() != "dünya kadınlar günü":
-    cevap = input("Bu gün günlerden ne? ")
-    
+st.set_page_config(page_title="Özel Bir Soru", page_icon="🌹")
+st.title("Küçük Bir Soru... 🤔")
+
+cevap = st.text_input("Bugün günlerden ne?", placeholder="Buraya yaz...")
+
+if st.button("Kontrol Et"):
     if cevap.lower().strip() == "dünya kadınlar günü":
-        print("Dünyanın en güzel kadınının dünya kadınlar günü kutlu olsunnnnnn")
-        break # Doğru bilince döngüden çık
+        st.balloons()
+        st.success("Dünyanın en güzel kadınının dünya kadınlar günü kutlu olsunnnnnn")
     else:
-        print("Yanlışşşşş! Tekrar dene...")
+        st.error("Maalesef yanlış... Bir daha dene! ❌")
